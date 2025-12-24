@@ -4,9 +4,8 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 
-interface StaggerChildrenProps {
+interface StaggerChildrenProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  className?: string
   staggerDelay?: number
 }
 
@@ -14,6 +13,7 @@ export function StaggerChildren({
   children,
   className,
   staggerDelay = 0.1,
+  ...props
 }: StaggerChildrenProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
@@ -35,6 +35,7 @@ export function StaggerChildren({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       className={className}
+      {...props}
     >
       {children}
     </motion.div>
