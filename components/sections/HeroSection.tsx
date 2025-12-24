@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ServiceCountdown } from "./ServiceCountdown"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronDown } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -21,7 +21,7 @@ export function HeroSection() {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop&q=90"
+          src="/images/churchHomepage.avif"
           alt="RCCG Shiloh Mega Parish - A place of salvation and hope"
           fill
           className="object-cover"
@@ -88,6 +88,27 @@ export function HeroSection() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
+      
+      {/* Scroll indicator arrow */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2 cursor-pointer group"
+          onClick={() => {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+          }}
+          aria-label="Scroll down"
+        >
+          <span className="text-xs sm:text-sm text-white/80 font-medium hidden sm:block">Scroll</span>
+          <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8 text-white/90 group-hover:text-white transition-colors" />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
