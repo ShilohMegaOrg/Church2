@@ -6,13 +6,7 @@ import { Quote } from "lucide-react"
 import { StaggerChildren } from "@/components/animations/StaggerChildren"
 import { FadeInItem } from "@/components/animations/FadeInItem"
 import { FadeInOnScroll } from "@/components/animations/FadeInOnScroll"
-
-interface Testimonial {
-  name: string
-  role?: string
-  content: string
-  image?: string
-}
+import type { Testimonial } from "@/lib/cms/types"
 
 interface TestimonialSectionProps {
   testimonials: Testimonial[]
