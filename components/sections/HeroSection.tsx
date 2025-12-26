@@ -25,7 +25,7 @@ export function HeroSection() {
             src="/images/shiloh.png"
             alt="RCCG Shiloh Mega Parish - A place of salvation and hope"
             fill
-            className="object-cover object-[35%_center] md:object-center"
+            className="object-cover object-[40%_center] md:object-center"
             priority
             quality={90}
           />
