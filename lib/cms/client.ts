@@ -37,7 +37,7 @@ const mockPastors: Pastor[] = [
     title: "Assistant Pastor",
     bio: "Dedicated to serving the community with love and grace.",
     image: {
-      url: "/images/AsstPastor_Olise.webp",
+      url: "/images/MrsOlise.png",
       alt: "Pastor Caroline Olise",
     },
   },
