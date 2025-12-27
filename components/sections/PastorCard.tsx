@@ -12,11 +12,17 @@ interface PastorCardProps {
 }
 
 export function PastorCard({ name, title, image, bio }: PastorCardProps) {
-  // Assistant Pastor uses object-cover which works well for her image
+  // Assistant Pastor needs top positioning to show hat fully
   // Pastor's image needs specific positioning to show face - using center with top bias
   const isPastorOlise = name.includes("Moses Olise") || image.includes("pastorOlise")
+  const isAssistantPastor = name.includes("Caroline Olise") || image.includes("AsstPastor")
+  const imageContainerClassName = isAssistantPastor
+    ? "relative h-80 w-full overflow-hidden sm:h-96"
+    : "relative h-64 w-full overflow-hidden"
   const imageClassName = isPastorOlise 
     ? "object-cover object-[center_25%]" 
+    : isAssistantPastor
+    ? "object-cover object-[center_10%] sm:object-[center_14%] md:object-[center_18%]" // Extra height + stronger top bias for more hat
     : "object-cover"
 
   return (
@@ -25,7 +31,7 @@ export function PastorCard({ name, title, image, bio }: PastorCardProps) {
       transition={{ duration: 0.2 }}
     >
       <Card className="overflow-hidden transition-shadow hover:shadow-lg">
-        <div className="relative h-64 w-full overflow-hidden">
+        <div className={imageContainerClassName}>
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -49,4 +55,3 @@ export function PastorCard({ name, title, image, bio }: PastorCardProps) {
     </motion.div>
   )
 }
-

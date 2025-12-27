@@ -52,3 +52,5 @@ The script will automatically:
 - **File format**: Always save as PNG to preserve transparency
 - **File location**: Place files in `public/images/` folder
 
+
+
