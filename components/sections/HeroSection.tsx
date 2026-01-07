@@ -27,16 +27,47 @@ export function HeroSection({ events }: HeroSectionProps) {
       >
         <div className="absolute inset-0">
           <Image
-            src="/images/shiloh.png"
+            src="/images/shiloh-no-text.png"
             alt="RCCG Shiloh Mega Parish - A place of salvation and hope"
             fill
-            className="object-cover object-[43%_center] md:object-center"
+            className="object-cover object-center"
             priority
             quality={90}
           />
         </div>
         {/* Lighter overlay to let image show through more */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+      </motion.div>
+
+      {/* SHILOH text overlay - positioned in upper area like original */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute top-[35%] sm:top-[38%] md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[8] pointer-events-none"
+        aria-hidden="true"
+      >
+        <h2
+          className="text-[22vw] sm:text-[20vw] md:text-[15vw] lg:text-[13vw] xl:text-[11vw] font-black tracking-wider select-none whitespace-nowrap"
+          style={{
+            color: 'rgba(200, 195, 175, 0.18)',
+            WebkitTextStroke: '2.5px rgba(200, 195, 175, 0.45)',
+            textShadow: `
+              0 15px 40px rgba(0,0,0,0.9),
+              0 8px 20px rgba(0,0,0,0.8),
+              inset 0 -6px 12px rgba(0,0,0,0.6),
+              inset 0 6px 12px rgba(255,255,255,0.08),
+              0 2px 4px rgba(0,0,0,0.7)
+            `,
+            fontFamily: 'system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif',
+            letterSpacing: '0.12em',
+            lineHeight: 1,
+            fontWeight: 900,
+            opacity: 0.85
+          }}
+        >
+          SHILOH
+        </h2>
       </motion.div>
       
       {/* Subtle countdown in top right corner (desktop) */}
@@ -59,7 +90,7 @@ export function HeroSection({ events }: HeroSectionProps) {
         <ServiceCountdown events={events} />
       </motion.div>
       
-      <div className="container relative z-10 px-4 pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-12 sm:pb-16 md:pb-20">
+      <div className="container relative z-20 px-4 pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-12 sm:pb-16 md:pb-20">
         <div className="mx-auto max-w-3xl text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
